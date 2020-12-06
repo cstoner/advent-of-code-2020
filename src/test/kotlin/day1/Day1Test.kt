@@ -5,15 +5,13 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import util.InputFileLoader
 
-internal class Day1Test {
+internal class Day1Test() {
     private val day1: Day1
 
-    constructor() {
+    init {
         val inputLoader = InputFileLoader("/day1_example.txt")
         val input = inputLoader.asListOfInts()
-
         day1 = Day1(input)
-
     }
 
     @Test
