@@ -26,7 +26,7 @@ internal class Day2Test {
     @Test
     fun day2_part1() {
         val inputFileLoader = InputFileLoader("/day2_example.txt")
-        val day2Input = inputFileLoader.asListOf(::passwordPolicyLineMapper)
+        val day2Input = inputFileLoader.map(::passwordPolicyLineMapper)
         val day2 = Day2(day2Input)
 
         assertEquals(2, day2.part1())
@@ -35,7 +35,7 @@ internal class Day2Test {
     @Test
     fun day2_part2() {
         val inputFileLoader = InputFileLoader("/day2_example.txt")
-        val day2Input = inputFileLoader.asListOf(::passwordPolicyLineMapper)
+        val day2Input = inputFileLoader.map(::passwordPolicyLineMapper)
         val day2 = Day2(day2Input)
 
         assertEquals(1, day2.part2())

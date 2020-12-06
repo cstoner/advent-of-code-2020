@@ -66,7 +66,7 @@ class Day2(
 
 fun main() {
     val inputMapper = InputFileLoader("/day2_input.txt")
-    val day2Inputs: List<Pair<PasswordPolicy, String>> = inputMapper.asListOf(::passwordPolicyLineMapper)
+    val day2Inputs: List<Pair<PasswordPolicy, String>> = inputMapper.map(::passwordPolicyLineMapper)
     val day2 = Day2(day2Inputs)
 
     val part1Count = day2.part1()

@@ -38,7 +38,7 @@ class Day1(private val input: List<Int>) {
 
 fun main() {
     val inputLoader = InputFileLoader("/day1_input.txt")
-    val input: List<Int> = inputLoader.asListOfInts()
+    val input: List<Int> = inputLoader.map { it.toInt() }
 
     val day1 = Day1(input)
     val part1Solution = day1.part1()

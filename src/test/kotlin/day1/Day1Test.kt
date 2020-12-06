@@ -10,7 +10,7 @@ internal class Day1Test() {
 
     init {
         val inputLoader = InputFileLoader("/day1_example.txt")
-        val input = inputLoader.asListOfInts()
+        val input = inputLoader.map { it.toInt() }
         day1 = Day1(input)
     }
 
