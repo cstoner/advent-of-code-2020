@@ -33,11 +33,11 @@ class Day4(private val passports: List<Passport>) {
         byr.toInt() in 1920..2002
     }
 
-    private val iyrValidator = { iyr: String ->
+    val iyrValidator = { iyr: String ->
         iyr.toInt() in 2010..2020
     }
 
-    private val eyrValidator = { eyr: String ->
+    val eyrValidator = { eyr: String ->
         eyr.toInt() in 2020..2030
     }
 
