@@ -14,7 +14,7 @@ class Day11(private val initialGrid: List<List<Char>>) {
     val gridIterations = mutableListOf(initialGrid)
 
     private fun findChairLocations(grid: List<List<Char>>): Set<Pair<Int, Int>> {
-        val results = mutableListOf<Pair<Int,Int>>()
+        val results = mutableListOf<Pair<Int, Int>>()
         for (i in grid.indices) {
             for (j in grid[i].indices) {
                 if (grid[i][j] == EMPTY_CHAIR) {
@@ -71,10 +71,12 @@ class Day11(private val initialGrid: List<List<Char>>) {
             // Grid is [column][row] but coords are [x][y], hence the reversal
             val thisChair = currentGrid[chairCoords.second][chairCoords.first]
             val neighbors = getNeighborsForPart1(chairCoords.first, chairCoords.second)
-            val occupiedNeighbors = neighbors.map { when (currentGrid[it.second][it.first]) {
-                '#' -> 1
-                else -> 0
-            }}.sum()
+            val occupiedNeighbors = neighbors.map {
+                when (currentGrid[it.second][it.first]) {
+                    '#' -> 1
+                    else -> 0
+                }
+            }.sum()
 
             newGrid[chairCoords.second][chairCoords.first] = thisChair
             if (thisChair == EMPTY_CHAIR && occupiedNeighbors == 0) {
@@ -92,7 +94,7 @@ class Day11(private val initialGrid: List<List<Char>>) {
      * Iterate until the layout doesn't change and count the number of chairs
      */
     fun part1(): Int {
-        while(true) {
+        while (true) {
             val currentGrid = gridToString(gridIterations.last())
             val newGrid = gridToString(part1Step())
             if (currentGrid == newGrid) {
@@ -109,7 +111,7 @@ class Day11(private val initialGrid: List<List<Char>>) {
     private fun findChairInDirection(origin: Pair<Int, Int>, direction: Pair<Int, Int>): Pair<Int, Int>? {
         var currLoc = Pair(origin.first + direction.first, origin.second + direction.second);
 
-        while(currLoc.first in 0..gridWidth && currLoc.second in 0..gridHeight) {
+        while (currLoc.first in 0..gridWidth && currLoc.second in 0..gridHeight) {
             if (currLoc in chairLocations) {
                 return currLoc
             }
@@ -147,10 +149,12 @@ class Day11(private val initialGrid: List<List<Char>>) {
             // Grid is [column][row] but coords are [x][y], hence the reversal
             val thisChair = currentGrid[chairCoords.second][chairCoords.first]
             val visibleNeighbors = visibleChairMap[chairCoords]
-            val occupiedVisibleNeighbors = visibleNeighbors!!.map { when (currentGrid[it.second][it.first]) {
-                '#' -> 1
-                else -> 0
-            }}.sum()
+            val occupiedVisibleNeighbors = visibleNeighbors!!.map {
+                when (currentGrid[it.second][it.first]) {
+                    '#' -> 1
+                    else -> 0
+                }
+            }.sum()
 
             newGrid[chairCoords.second][chairCoords.first] = thisChair
             if (thisChair == EMPTY_CHAIR && occupiedVisibleNeighbors == 0) {
@@ -168,7 +172,7 @@ class Day11(private val initialGrid: List<List<Char>>) {
      * Iterate until the layout doesn't change and count the number of chairs
      */
     fun part2(): Int {
-        while(true) {
+        while (true) {
             val currentGrid = gridToString(gridIterations.last())
             val newGrid = gridToString(part2Step())
 
