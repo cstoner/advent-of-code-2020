@@ -40,7 +40,14 @@ internal class Day19KtTest {
 
         val day19 = Day19(rules, inputs)
 
-        //assertEquals(3, day19.part1())
+        assertNotNull(rules["42"]!!.match(rules, "babbb"))
+        assertNotNull(rules["42"]!!.match(rules, "baabb"))
+        assertNotNull(rules["42"]!!.match(rules, "bbbab"))
+        assertNotNull(rules["42"]!!.match(rules, "bbbbb"))
+        assertNotNull(rules["31"]!!.match(rules, "aabaa"))
+        assertNotNull(rules["31"]!!.match(rules, "abaaa"))
+
+//        assertEquals(3, day19.part1())
         assertEquals(12, day19.part2())
     }
 }
